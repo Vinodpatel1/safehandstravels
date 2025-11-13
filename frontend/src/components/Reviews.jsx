@@ -138,21 +138,6 @@ const Reviews = () => {
             </div>
           ))}
         </div>
-
-        {/* Average Rating Summary */}
-        <div className="mt-8 sm:mt-12 text-center px-4">
-          <div className="inline-block bg-blue-50 rounded-lg px-4 sm:px-8 py-4 sm:py-6">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mb-2">
-              <span className="text-3xl sm:text-4xl font-bold text-gray-900">4.8</span>
-              <div className="flex items-center gap-1">
-                {renderStars(4.8)}
-              </div>
-            </div>
-            <p className="text-gray-600 text-xs sm:text-sm">
-              Based on {reviews.length * 10}+ verified reviews
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );

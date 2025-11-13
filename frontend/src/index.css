@@ -1,10 +1,47 @@
 @import "tailwindcss";
 
-@keyframes rotate-border {
-  0% {
-    transform: rotate(0deg);
+@keyframes snake-rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
   }
-  100% {
-    transform: rotate(360deg);
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
+}
+
+.snake-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: white;
+}
+
+.snake-border::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 50deg,
+    #3b82f6 70deg,
+    #8b5cf6 90deg,
+    #3b82f6 110deg,
+    transparent 130deg,
+    transparent 360deg
+  );
+  animation: snake-rotate 3s linear infinite;
+}
+
+.snake-border::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: calc(1rem - 2px);
+  background: white;
+  z-index: 2;
 }

@@ -10,22 +10,15 @@ const TravelCard = ({
 }) => {
   return (
     <div className="relative group">
-      {/* Rotating Border */}
+      {/* Snake Border Animation */}
       <div 
-        className="absolute -inset-[3px] rounded-2xl overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        className="absolute -inset-[2px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
       >
-        <div 
-          className="absolute inset-0"
-          style={{
-            background: 'conic-gradient(from 0deg, #3b82f6, #8b5cf6, #3b82f6)',
-            animation: 'rotate-border 3s linear infinite',
-          }}
-        ></div>
-        <div className="absolute inset-[3px] rounded-2xl bg-white"></div>
+        <div className="snake-border"></div>
       </div>
       
       {/* Card Content */}
-      <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer">
+      <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer z-10">
         {/* Image Section */}
         <div className="relative h-48 overflow-hidden">
           <img 

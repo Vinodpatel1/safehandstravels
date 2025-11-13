@@ -31,10 +31,6 @@ const Footer = () => {
                   alt="Safehands Travels Logo" 
                   className="h-10 sm:h-12 w-auto object-contain"
                 />
-                <div>
-                  <h2 className="text-orange-600 text-lg sm:text-xl font-bold">SafeHands Travels</h2>
-                  <p className="text-gray-500 text-xs">Always with you</p>
-                </div>
               </div>
               
               {/* Description */}
@@ -150,28 +146,6 @@ const Footer = () => {
               {/* Copyright */}
               <div className="text-gray-500 text-xs sm:text-sm text-center md:text-left">
                 © 2024 All Rights Reserved.
-              </div>
-
-              {/* Payment Methods */}
-              <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
-                <span className="text-gray-500 text-xs sm:text-sm">[woo_multi_currency_layout9]</span>
-                <div className="flex items-center space-x-2">
-                  <img 
-                    src="https://www.visa.com/content/dam/VCOM/regional/ve/romania/blogs/hero-image/visa-logo-800x450.jpg" 
-                    alt="VISA" 
-                    className="h-5 sm:h-6 object-contain"
-                  />
-                  <img 
-                    src="https://brand.mastercard.com/content/dam/mccom/brandcenter/thumbnails/mastercard_vrt_rev_92px_2x.png" 
-                    alt="Mastercard" 
-                    className="h-5 sm:h-6 object-contain"
-                  />
-                  <img 
-                    src="https://www.americanexpress.com/content/dam/amex/us/merchant/supplies/images/amex-logo-blue.png" 
-                    alt="American Express" 
-                    className="h-5 sm:h-6 object-contain"
-                  />
-                </div>
               </div>
             </div>
           </div>
