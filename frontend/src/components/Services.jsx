@@ -54,7 +54,7 @@ const Services = () => {
   ];
 
   return (
-    <section className="bg-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+    <section id="car-booking" className="bg-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Main Title */}
         <h2 className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-gray-900 mb-8 sm:mb-12 font-bold px-4">

@@ -1,11 +1,43 @@
 import { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaUser, FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    
+    // If we're on the trip detail page, navigate to home first
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for navigation, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          // If element not found, scroll to top
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }, 200);
+    } else {
+      // We're already on home page, just scroll
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        // If element not found, scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
   };
 
   return (
@@ -14,62 +46,62 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Left corner - Logo */}
           <div className="flex items-center flex-shrink-0">
-            <a href="#home" className="block transition-transform duration-300 hover:scale-105 active:scale-95">
+            <Link to="/" className="block transition-transform duration-300 hover:scale-105 active:scale-95">
               <img 
                 src="https://safehandstravels.com/wp-content/uploads/2022/07/Safehands-Logo-e1713424039293.jpg" 
                 alt="Safehands Travels Logo" 
                 className="h-8 sm:h-10 md:h-12 w-auto object-contain cursor-pointer"
               />
-            </a>
+            </Link>
           </div>
 
           {/* Middle - Navigation Links (Desktop) */}
           <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
-            <a 
-              href="#home" 
+            <button 
+              onClick={(e) => handleNavClick(e, 'home')}
               className="relative text-gray-700 px-2 xl:px-3 py-2 text-sm font-medium transition-all duration-300 group"
             >
               <span className="relative z-10 group-hover:text-orange-600 transition-colors duration-300">
                 Home
               </span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-600 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a 
-              href="#tours" 
+            </button>
+            <button 
+              onClick={(e) => handleNavClick(e, 'tours')}
               className="relative text-gray-700 px-2 xl:px-3 py-2 text-sm font-medium transition-all duration-300 group"
             >
               <span className="relative z-10 group-hover:text-orange-600 transition-colors duration-300">
                 Our Tours
               </span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-600 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a 
-              href="#car-booking" 
+            </button>
+            <button 
+              onClick={(e) => handleNavClick(e, 'car-booking')}
               className="relative text-gray-700 px-2 xl:px-3 py-2 text-sm font-medium transition-all duration-300 group"
             >
               <span className="relative z-10 group-hover:text-orange-600 transition-colors duration-300">
                 Car Booking
               </span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-600 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a 
-              href="#blogs" 
+            </button>
+            <button 
+              onClick={(e) => handleNavClick(e, 'blogs')}
               className="relative text-gray-700 px-2 xl:px-3 py-2 text-sm font-medium transition-all duration-300 group"
             >
               <span className="relative z-10 group-hover:text-orange-600 transition-colors duration-300">
                 Blogs
               </span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-600 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a 
-              href="#contact" 
+            </button>
+            <button 
+              onClick={(e) => handleNavClick(e, 'contact')}
               className="relative text-gray-700 px-2 xl:px-3 py-2 text-sm font-medium transition-all duration-300 group"
             >
               <span className="relative z-10 group-hover:text-orange-600 transition-colors duration-300">
                 Contact Us
               </span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-600 transition-all duration-300 group-hover:w-full"></span>
-            </a>
+            </button>
           </div>
 
           {/* Right corner - Login/Register (Desktop) */}
@@ -113,41 +145,36 @@ const Navbar = () => {
           isMobileMenuOpen ? 'max-h-96 pb-4' : 'max-h-0'
         }`}>
           <div className="flex flex-col space-y-2 pt-2">
-            <a 
-              href="#home" 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-gray-700 px-3 py-2 text-sm font-medium rounded-md transition-all duration-300 hover:text-orange-600 hover:bg-orange-50 active:bg-orange-100"
+            <button 
+              onClick={(e) => handleNavClick(e, 'home')}
+              className="text-left text-gray-700 px-3 py-2 text-sm font-medium rounded-md transition-all duration-300 hover:text-orange-600 hover:bg-orange-50 active:bg-orange-100"
             >
               Home
-            </a>
-            <a 
-              href="#tours" 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-gray-700 px-3 py-2 text-sm font-medium rounded-md transition-all duration-300 hover:text-orange-600 hover:bg-orange-50 active:bg-orange-100"
+            </button>
+            <button 
+              onClick={(e) => handleNavClick(e, 'tours')}
+              className="text-left text-gray-700 px-3 py-2 text-sm font-medium rounded-md transition-all duration-300 hover:text-orange-600 hover:bg-orange-50 active:bg-orange-100"
             >
               Our Tours
-            </a>
-            <a 
-              href="#car-booking" 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-gray-700 px-3 py-2 text-sm font-medium rounded-md transition-all duration-300 hover:text-orange-600 hover:bg-orange-50 active:bg-orange-100"
+            </button>
+            <button 
+              onClick={(e) => handleNavClick(e, 'car-booking')}
+              className="text-left text-gray-700 px-3 py-2 text-sm font-medium rounded-md transition-all duration-300 hover:text-orange-600 hover:bg-orange-50 active:bg-orange-100"
             >
               Car Booking
-            </a>
-            <a 
-              href="#blogs" 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-gray-700 px-3 py-2 text-sm font-medium rounded-md transition-all duration-300 hover:text-orange-600 hover:bg-orange-50 active:bg-orange-100"
+            </button>
+            <button 
+              onClick={(e) => handleNavClick(e, 'blogs')}
+              className="text-left text-gray-700 px-3 py-2 text-sm font-medium rounded-md transition-all duration-300 hover:text-orange-600 hover:bg-orange-50 active:bg-orange-100"
             >
               Blogs
-            </a>
-            <a 
-              href="#contact" 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-gray-700 px-3 py-2 text-sm font-medium rounded-md transition-all duration-300 hover:text-orange-600 hover:bg-orange-50 active:bg-orange-100"
+            </button>
+            <button 
+              onClick={(e) => handleNavClick(e, 'contact')}
+              className="text-left text-gray-700 px-3 py-2 text-sm font-medium rounded-md transition-all duration-300 hover:text-orange-600 hover:bg-orange-50 active:bg-orange-100"
             >
               Contact Us
-            </a>
+            </button>
             {/* Mobile Login/Register */}
             <div className="flex items-center space-x-3 pt-2 border-t border-gray-200">
               <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100">

@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 const TravelCard = ({ 
   image, 
   title, 
@@ -6,8 +8,15 @@ const TravelCard = ({
   discount, 
   duration, 
   dates,
-  hasFreeGoodies = true 
+  hasFreeGoodies = true,
+  id
 }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/trip/${id}`);
+  };
+
   return (
     <div className="relative group">
       {/* Snake Border Animation */}
@@ -18,7 +27,10 @@ const TravelCard = ({
       </div>
       
       {/* Card Content */}
-      <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer z-10">
+      <div 
+        onClick={handleClick}
+        className="relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer z-10"
+      >
         {/* Image Section */}
         <div className="relative h-48 overflow-hidden">
           <img 

@@ -56,7 +56,7 @@ const HeroSlider = () => {
   };
 
   return (
-    <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden group">
+    <div id="home" className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden group">
       {/* Image Container */}
       <div className="relative w-full h-full">
         {images.map((image, index) => (
