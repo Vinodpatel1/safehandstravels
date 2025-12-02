@@ -1,16 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import HeroVideo from './components/HeroVideo'
+import Navbar from './components/Navbar'
+import UpcomingTrips from './components/UpcomingTrips'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <h1 className='text-2xl'>safehandstravels</h1>
-     
-    </>
+    <div className="min-h-screen bg-white text-gray-900 font-sans">
+      <Navbar />
+      <HeroVideo />
+      <UpcomingTrips />
+    </div>
   )
 }
 

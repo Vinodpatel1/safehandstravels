@@ -1,0 +1,11 @@
+<svg width="160" height="54" viewBox="0 0 160 54" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="captureTripTitle">
+  <title id="captureTripTitle">Capture A Trip</title>
+  <rect width="160" height="54" fill="none"/>
+  <text x="0" y="24" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#037732" letter-spacing="0.2em" textLength="140">
+    CAPTURE
+  </text>
+  <text x="28" y="48" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#037732" letter-spacing="0.2em" textLength="120">
+    A TRIP
+  </text>
+</svg>
+
